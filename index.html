@@ -1,144 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Exia Corp - Bots</title>
-    <meta name="description" content="Site de bots Exia avec tarifs et documentation." />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="favicon.ico" />
-    <style>
-      .visually-hidden {
-        position: absolute !important;
-        height: 1px; width: 1px;
-        overflow: hidden;
-        clip: rect(1px, 1px, 1px, 1px);
-        white-space: nowrap;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXIA - Boutique de Bots Discord</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="loader">
-        <div class="spinner"></div>
-        <p class="loader-text">Chargement Exia...</p>
+  <header>
+    <h1>🤖 EXIA</h1>
+    <p>Vos bots Discord préférés, stylés et fonctionnels !</p>
+  </header>
+
+  <main class="container">
+    <!-- Cartes bots -->
+    <div class="card" data-nom="Gestion" data-prix="2.50">
+      <h2>Bot Gestion</h2>
+      <p>Bot de gestion pour votre serveur Discord.</p>
+      <span class="prix">2,50 €</span>
+      <button class="btn">Ajouter au panier</button>
     </div>
 
-    <header>
-        <h1>Bienvenue sur <span class="neon">Exia Corp</span></h1>
-        <nav>
-            <ul>
-                <li><button id="exiaBtn" class="bot-btn" aria-label="Voir les bots Exia">Exia</button></li>
-                <li><button id="surMesureBtn" class="bot-btn" aria-label="Voir les bots sur-mesure">Sur-Mesure</button></li>
-                <li><button id="autresBtn" class="bot-btn" aria-label="Voir les autres bots">Autres</button></li>
-            </ul>
-        </nav>
-    </header>
-
-    <p id="welcomeMessage">✨ Découvrez nos solutions de bots ! ✨</p>
-
-    <section id="testimonialsSection" class="testimonials">
-      <h2>💬 Témoignages</h2>
-      
-      <button id="openTestimonialFormBtn" class="open-testimonial-btn">Écrire un avis</button>
-
-      <form id="testimonialForm" aria-label="Formulaire de témoignage" class="hidden">
-        <label for="username">Votre nom :</label>
-        <input type="text" id="username" name="username" required placeholder="Votre nom" />
-        
-        <label for="message">Votre avis :</label>
-        <textarea id="message" name="message" rows="4" required placeholder="Écrivez votre avis ici..."></textarea>
-        
-        <button type="submit">Envoyer</button>
-        <button type="button" id="closeTestimonialFormBtn" class="close-btn">Annuler</button>
-      </form>
-
-      <div id="testimonialsList" aria-live="polite" aria-relevant="additions"></div>
-      <div id="testimonialContainer"></div>
-    </section>
-
-    <section id="tarifsSection" class="tarifs">
-      <label for="searchInput" class="visually-hidden">Rechercher un bot ou fonctionnalité</label>
-      <input type="text" id="searchInput" placeholder="Rechercher un bot ou fonctionnalité..." />
-      <table id="tarifTable" role="table" aria-label="Tableau des tarifs des bots"></table>
-    </section>
-
-    <section class="parallax-section">
-        <h2>Bienvenue dans l’espace</h2>
-    </section>
-
-    <section class="scroll-reveal">
-      <h2>Découvre notre univers, nos bots, notre équipe !</h2>
-      <h1 id="typewriter"></h1>
-    </section>
-
-    <section class="team">
-      <div class="team-container">
-        <div class="team-card">
-          <img src="IMG/hauka.png" alt="Photo de Hauka">
-          <h3>Hauka</h3>
-          <p>Dev Web</p>
-          <p class="description">Responsable de la partie web</p>
-        </div>
-        <div class="team-card">
-          <img src="IMG/neoned.png" alt="Photo de Neoned">
-          <h3>Neoned</h3>
-          <p>Dev Exia</p>
-          <p class="description">Responsable de l'ensemble du projet exia</p>
-        </div>
-        <div class="team-card-back">
-          <p>Plus d'infos sur le membre de l'équipe.</p>
-        </div>
-      </div>
-    </section>
-
-<section class="timeline">
-  <h2>📅 L'histoire d'Exia Corp</h2>
-  <div class="timeline-container">
-    <div class="timeline-block left">
-      <div class="content">
-        <h3>2024/2025</h3>
-        <p>Création de Exia Corp</p>
-      </div>
+    <div class="card" data-nom="Economy" data-prix="3">
+      <h2>Bot Economy</h2>
+      <p>Gérez une économie virtuelle sur votre serveur Discord.</p>
+      <span class="prix">3 €</span>
+      <button class="btn">Ajouter au panier</button>
     </div>
-    <div class="timeline-block right">
-      <div class="content">
-        <h3>2024/2025</h3>
-        <p>Création des API</p>
-      </div>
-    </div>
-    <div class="timeline-block left">
-      <div class="content">
-        <h3>2024/2025</h3>
-        <p>Mise en ligne du site officiel</p>
-      </div>
-    </div>
-    <div class="timeline-block right">
-      <div class="content">
-        <h3>2024/2025</h3>
-        <p>Attente du lancement du bot</p>
-      </div>
-    </div>
-  </div>
-</section>
- 
-    <section id="botSummary" class="bot-summary"></section>
 
-    <footer>
-        <p>© 2025 Exia Corp.</p>
-        <ul>
-            <li><a href="#privacy" style="color:#bbb;">Politique de confidentialité</a></li>
-            <li><a href="#terms" style="color:#bbb;">Conditions d'utilisation</a></li>
-        </ul>
-    </footer>
+    <div class="card" data-nom="Secure" data-prix="4">
+      <h2>Bot Secure</h2>
+      <p>Protection et sécurité avancée pour votre serveur.</p>
+      <span class="prix">4 €</span>
+      <button class="btn">Ajouter au panier</button>
+    </div>
 
-    <button id="linkBtn" title="Rejoindre notre communauté Discord">Discord</button>
-    <button id="documentationBtn" title="Voir la documentation Exia">Documentation</button>
-    <button class="back-to-top" title="Retour en haut">↑</button>
-    <button id="statusBtn" onclick="window.open('https://status.exia.site', '_blank')" title="Voir le status des services Exia">
-      Status
-    </button>
+    <div class="card" data-nom="Bot sur mesure" data-prix="0">
+      <h2>Bot sur mesure</h2>
+      <p>Bot personnalisé selon vos besoins.</p>
+      <span class="prix">Sur demande</span>
+      <button class="btn">Demander</button>
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
-    <script src="scripts.js"></script>
+    <div class="card" data-nom="Bot gratuit" data-prix="0">
+      <h2>Bot Gratuit</h2>
+      <p>Bot gratuit pour découvrir nos fonctionnalités de base.</p>
+      <span class="prix">Gratuit</span>
+      <button class="btn">Ajouter au panier</button>
+    </div>
+  </main>
+
+  <aside class="panier">
+    <h2>Panier</h2>
+    <ul id="liste-panier"></ul>
+    <p>Total : <span id="total">0 €</span></p>
+
+    <h3>Vos informations :</h3>
+    <form id="form-commande">
+      <input type="text" id="nom" placeholder="Nom ou pseudo" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <button type="submit">Valider la commande</button>
+    </form>
+  </aside>
+
+  <footer>
+    <p>&copy; 2025 EXIA - Tous droits réservés</p>
+  </footer>
+
+  <script src="../js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,93 @@
+* { box-sizing: border-box; margin:0; padding:0; font-family: 'Segoe UI', sans-serif; }
+body {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0,0,0,0.25);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+header h1 { font-size: 3rem; margin-bottom: 10px; }
+header p { font-size: 1.2rem; }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px 20px;
+}
+
+.card {
+  background: linear-gradient(135deg, #ff6b6b, #f06595);
+  width: 280px;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.card:nth-child(2){ background: linear-gradient(135deg,#ffb347,#ffcc33); }
+.card:nth-child(3){ background: linear-gradient(135deg,#6a11cb,#2575fc); }
+.card:nth-child(4){ background: linear-gradient(135deg,#11998e,#38ef7d); }
+.card:nth-child(5){ background: linear-gradient(135deg,#ff512f,#dd2476); }
+.card:nth-child(6){ background: linear-gradient(135deg,#1f4037,#99f2c8); }
+
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.card h2 { font-size: 1.5rem; margin-bottom:10px; }
+.card p { font-size: 0.95rem; margin-bottom: 15px; }
+.prix { font-weight:bold; font-size:1.2rem; margin-bottom:15px; display:block; }
+
+.btn, #form-commande button {
+  padding: 12px 20px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  background: linear-gradient(90deg,#ffd200,#ff7300);
+  color:#fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover, #form-commande button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.panier {
+  position: fixed;
+  right: 20px;
+  top: 120px;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.panier ul { list-style:none; max-height:200px; overflow-y:auto; margin-bottom:10px; padding-left:0; }
+.panier input {
+  width:100%;
+  padding:8px;
+  margin:5px 0;
+  border-radius:8px;
+  border:none;
+}
+
+footer {
+  text-align:center;
+  padding:25px;
+  background: rgba(0,0,0,0.3);
+  margin-top:40px;
+}
+
+@media(max-width:768px){
+  .container { flex-direction:column; align-items:center; }
+  .panier{ position: static; width:90%; margin:20px auto; }
+}
