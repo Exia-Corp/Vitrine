@@ -34,7 +34,7 @@ document.getElementById("form-commande").addEventListener("submit", async functi
   e.preventDefault();
 
   const nom = document.getElementById("nom").value;
-  const email = document.getElementById("email").value;
+  const id = document.getElementById("id").value;
 
   if(panier.length === 0){
     alert("Votre panier est vide !");
@@ -48,12 +48,12 @@ document.getElementById("form-commande").addEventListener("submit", async functi
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `Nouvelle commande de **${nom} (${email})**\n` +
-                 panier.map(item => `- ${item.nom} (€${item.prix})`).join("\n")
+        content: `Nouvelle commande de **${nom} (${id})**\n` +
+          panier.map(item => `- ${item.nom} (€${item.prix})`).join("\n")
       })
     });
 
-    alert(`Commande envoyée ! Vérifie Discord pour voir les détails.`);
+    alert(`Afin de procéder au payement de votre commande, vous allez être redirigé vers notre service de payement sécurisé (Stripe)`);
     panier.length = 0;
     afficherPanier();
     this.reset();
