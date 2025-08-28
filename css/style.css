@@ -86,12 +86,14 @@ footer {
     gap: 20px;
     padding: 40px 20px;
     background: rgba(0,0,0,0.2);
-    margin-top: 150px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     box-shadow: 0 -4px 16px rgba(0,0,0,0.2);
     width: 100%;
     overflow-x: hidden;
+    bottom: 0;
+    margin: 0;
+    position: fixed;
 }
 
 footer .grid-footer {
