@@ -33,33 +33,46 @@ function afficherPanier(){
 document.getElementById("form-commande").addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const nom = document.getElementById("nom").value;
-  const id = document.getElementById("id").value;
+  const user = {
+    "name": document.getElementById("nom").value,
+    "id": document.getElementById("id").value,
+    "bearerToken": "GENERATED_BEARER_TOKEN_HERE",
+    "checkoutStatus": "stripe.pending",
+    "lastError": null,
+  };
 
   if(panier.length === 0){
     alert("Votre panier est vide !");
     return;
   }
 
-  try {
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1409894641825742969/mHwDY6gICuiR4MlOuv7RR9wTmWxVjiKtmqG2eLPzLweJQciO5on4pjpTQm5oizyjx2Z-";
+  localStorage.setItem("user", JSON.stringify(user));
 
-    await fetch(WEBHOOK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        content: `Nouvelle commande de **${nom} (${id})**\n` +
-          panier.map(item => `- ${item.nom} (€${item.prix})`).join("\n")
-      })
-    });
+  alert(`Afin de procéder au payement de votre commande, vous allez être redirigé vers notre service de payement sécurisé (Stripe)`);
+  fetch(`http://localhost:3000/checkout/success/${user.id}`, {
+		method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${user.bearerToken}`
+    },
+    body: JSON.stringify({
+        name: user.name,
+        panier: panier
+    })
+	})
+	.then(res => {
+    if (!res.ok) throw new Error(`Erreur API: ${res.status}`)
+    return res.json()
+  })
+  .then(data => {
+      document.location.href = data.url
+  })
+  .catch(err => {
+      alert("Erreur lors de la redirection : " + err.message)
+  });
 
-    alert(`Afin de procéder au payement de votre commande, vous allez être redirigé vers notre service de payement sécurisé (Stripe)`);
-    panier.length = 0;
-    afficherPanier();
-    this.reset();
+  panier.length = 0;
+  afficherPanier();
+  this.reset();
 
-  } catch(err) {
-    console.error(err);
-    alert("Erreur de connexion au webhook Discord.");
-  }
 });
